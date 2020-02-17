@@ -14,7 +14,7 @@ public class Currency {
 
     String description;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "currency")
     Set<Country> country;
 
     public Set<Country> getCountry() {

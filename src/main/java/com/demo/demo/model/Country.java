@@ -8,21 +8,22 @@ public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
+    long countryId;
 
     @ManyToMany
+    @JoinTable(name = "currency_country", joinColumns = @JoinColumn(name = "countryId"), inverseJoinColumns = @JoinColumn(name = "currencyId"))
     Set<Currency> currency;
 
     String code;
 
     String name;
 
-    public long getId() {
-        return id;
+    public long getCountryId() {
+        return countryId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCountryId(long id) {
+        this.countryId = id;
     }
 
     public Set<Currency> getCurrency() {
